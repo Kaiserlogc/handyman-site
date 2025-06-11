@@ -1,7 +1,4 @@
-// Обновите ваш script.js следующим кодом:
-
 document.addEventListener('DOMContentLoaded', function() {
-  // Mobile Navigation
   const burger = document.querySelector('.burger');
   const navLinks = document.querySelector('.nav-links');
   const menuOverlay = document.createElement('div');
@@ -32,7 +29,6 @@ document.addEventListener('DOMContentLoaded', function() {
     document.body.classList.remove('no-scroll');
   }
   
-  // Sticky Header
   const header = document.querySelector('.header');
   window.addEventListener('scroll', () => {
     if (window.scrollY > 100) {
@@ -42,7 +38,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
   
-  // Back to Top Button
   const backToTopBtn = document.getElementById('backToTop');
   window.addEventListener('scroll', () => {
     if (window.scrollY > 300) {
@@ -60,7 +55,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
   
-  // Smooth Scrolling for Anchor Links
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
       e.preventDefault();
@@ -81,7 +75,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
   
-  // Form Submission
   const contactForm = document.getElementById('contactForm');
   if (contactForm) {
     contactForm.addEventListener('submit', function(e) {
@@ -92,8 +85,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
   
-  // Initialize Swiper Carousels
-  // Testimonials Carousel (always visible)
   const testimonialsCarousel = new Swiper('.testimonials-carousel', {
     slidesPerView: 1,
     spaceBetween: 30,
@@ -120,7 +111,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
   
-  // Services Carousel (mobile only)
   if (window.innerWidth <= 768) {
     const servicesCarousel = new Swiper('.services-carousel', {
       slidesPerView: 1,
@@ -132,7 +122,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
   
-  // Projects Carousel (mobile only)
   if (window.innerWidth <= 768) {
     const projectsCarousel = new Swiper('.projects-carousel', {
       slidesPerView: 1,
@@ -144,7 +133,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
   
-  // Handle window resize for carousels
   window.addEventListener('resize', function() {
     if (window.innerWidth <= 768) {
       if (!document.querySelector('.services-carousel').swiper) {
@@ -171,7 +159,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
   
-  // Animation on Scroll
   const animateOnScroll = () => {
     const elements = document.querySelectorAll('.service-card, .project-card, .testimonial-card, .info-card');
     
@@ -186,7 +173,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   };
   
-  // Set initial state for animated elements
   document.querySelectorAll('.service-card, .project-card, .testimonial-card, .info-card').forEach(element => {
     element.style.opacity = '0';
     element.style.transform = 'translateY(30px)';

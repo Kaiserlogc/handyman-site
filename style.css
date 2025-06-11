@@ -884,11 +884,10 @@ a {
 }
 
 
-/* Swiper Carousel Styles */
 .swiper {
   width: 100%;
   height: auto;
-  display: none; /* По умолчанию скрываем карусели */
+  display: none;
 }
 
 .swiper-wrapper {
@@ -900,7 +899,6 @@ a {
   display: grid;
 }
 
-/* Testimonials Carousel */
 .testimonials-carousel {
   padding: 20px 0 40px;
 }
@@ -929,6 +927,7 @@ a {
   opacity: 0.5;
   width: 10px;
   height: 10px;
+  display: none;
 }
 
 .testimonials-carousel .swiper-pagination-bullet-active {
@@ -936,12 +935,10 @@ a {
   opacity: 1;
 }
 
-/* Services Carousel */
 .services-carousel .service-card {
   margin-bottom: 30px;
 }
 
-/* Projects Carousel */
 .projects-carousel .project-card {
   height: 250px;
 }
@@ -990,6 +987,10 @@ a {
     font-size: 2rem;
   }
 
+  .project-overlay{
+    transform: translateY(0%);
+  }
+
   .services-grid,
   .projects-grid,
   .testimonials-grid {
@@ -1007,7 +1008,7 @@ a {
   
   .services-carousel .swiper-pagination,
   .projects-carousel .swiper-pagination {
-    bottom: 10px;
+    bottom: 0px;
   }
   
   .services-carousel .swiper-pagination-bullet,
