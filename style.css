@@ -1026,15 +1026,7 @@ a {
   }
 
   .info-card {
-    display: flex;
-  }
-
-  .info-card i{
-    margin-right: 10px
-  }
-
-  .info-card h3{
-    margin-right: 10px
+    padding: 10px;
   }
   
   .contact-info {
