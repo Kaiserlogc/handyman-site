@@ -1024,9 +1024,33 @@ a {
     background-color: var(--primary-blue);
     opacity: 1;
   }
+
+  .info-card {
+    display: flex;
+  }
+
+  .info-card i{
+    margin-right: 10px
+  }
+
+  .info-card h3{
+    margin-right: 10px
+  }
   
   .contact-info {
     grid-template-columns: 1fr;
+  }
+
+  .footer-links{
+    display: none;
+  }
+
+  .footer-services{
+    display: none;
+  }
+
+  .footer-bottom{
+    display: block;
   }
 }
 
