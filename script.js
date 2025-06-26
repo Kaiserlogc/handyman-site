@@ -171,3 +171,150 @@ document.addEventListener('DOMContentLoaded', function() {
   window.addEventListener('scroll', animateOnScroll);
   window.addEventListener('load', animateOnScroll);
 });
+
+// Service Modals Data
+const servicesData = {
+  flooring: {
+    title: "Flooring Services",
+    icon: "fa-layer-group",
+    description: "We provide premium flooring installation services with flawless craftsmanship and attention to detail. Our experts will help you choose the perfect flooring solution for your space.",
+    features: [
+      "Hardwood flooring installation",
+      "Luxury vinyl plank (LVP) flooring",
+      "Ceramic and porcelain tile installation",
+      "Laminate flooring solutions",
+      "Subfloor preparation and repair"
+    ],
+    bookLink: "book-now.html?service=flooring"
+  },
+  water: {
+    title: "Water Damage Restoration",
+    icon: "fa-water",
+    description: "Fast, professional water restoration services to protect your home and restore it to its original condition after leaks or flooding.",
+    features: [
+      "24/7 emergency water extraction",
+      "Structural drying and dehumidification",
+      "Mold remediation and prevention",
+      "Content cleaning and restoration"
+    ],
+    bookLink: "book-now.html?service=water_restoration"
+  },
+  deck: {
+    title: "Deck & Fence Services",
+    icon: "fa-tree",
+    description: "Custom deck and fence design and installation services using quality materials to enhance your outdoor living space.",
+    features: [
+      "Pressure-treated wood decks",
+      "Composite decking systems",
+      "Custom wood and vinyl fencing",
+      "Deck repairs and refinishing"
+    ],
+    bookLink: "book-now.html?service=deck"
+  },
+  tile: {
+    title: "Tile Work Services",
+    icon: "fa-border-style",
+    description: "Expert tile installation and repair for floors, walls, and backsplashes with precision craftsmanship and premium materials.",
+    features: [
+      "Ceramic and porcelain tile installation",
+      "Natural stone tile work",
+      "Shower and tub surround tiling",
+      "Grout repair and sealing"
+    ],
+    bookLink: "book-now.html?service=tile"
+  },
+  remodeling: {
+    title: "Home Remodeling",
+    icon: "fa-home",
+    description: "Complete kitchen, bathroom, basement and whole-home transformations to modernize your living spaces with quality craftsmanship.",
+    features: [
+      "Kitchen remodeling and upgrades",
+      "Bathroom renovations",
+      "Basement finishing",
+      "Whole-home renovations"
+    ],
+    bookLink: "book-now.html?service=remodeling"
+  },
+  painting: {
+    title: "Drywall & Painting",
+    icon: "fa-paint-roller",
+    description: "Professional drywall installation, repair and premium painting services to refresh your home's interior and exterior.",
+    features: [
+      "Drywall installation and finishing",
+      "Plaster repair",
+      "Interior and exterior painting",
+      "Cabinet refinishing"
+    ],
+    bookLink: "book-now.html?service=painting"
+  },
+  plumbing: {
+    title: "Plumbing Services",
+    icon: "fa-faucet",
+    description: "Comprehensive plumbing solutions including repairs, installations and maintenance for residential properties.",
+    features: [
+      "Pipe repair and replacement",
+      "Fixture installation",
+      "Water heater services",
+      "Drain cleaning"
+    ],
+    bookLink: "book-now.html?service=plumbing"
+  },
+  electrical: {
+    title: "Electrical Services",
+    icon: "fa-bolt",
+    description: "Licensed electricians providing safe and code-compliant electrical installations, repairs and upgrades for your home.",
+    features: [
+      "Electrical panel upgrades",
+      "Lighting installation",
+      "Outlet and switch repairs",
+      "Home rewiring"
+    ],
+    bookLink: "book-now.html?service=electrical"
+  }
+};
+
+// Открытие модального окна
+document.querySelectorAll('.learn-more').forEach(btn => {
+  btn.addEventListener('click', function(e) {
+    e.preventDefault();
+    const serviceType = this.dataset.service;
+    const serviceData = servicesData[serviceType];
+    
+    // Заполняем модальное окно
+    document.getElementById('modalServiceTitle').textContent = serviceData.title;
+    document.getElementById('modalServiceIcon').className = `fas ${serviceData.icon}`;
+    document.getElementById('modalServiceDescription').textContent = serviceData.description;
+    
+    const featuresContainer = document.getElementById('modalServiceFeatures');
+    featuresContainer.innerHTML = '<ul></ul>';
+    const featuresList = featuresContainer.querySelector('ul');
+    
+    serviceData.features.forEach(feature => {
+      const li = document.createElement('li');
+      li.innerHTML = `<i class="fas fa-check"></i> ${feature}`;
+      featuresList.appendChild(li);
+    });
+    
+    document.getElementById('modalBookLink').href = serviceData.bookLink;
+    
+    // Показываем модальное окно
+    document.getElementById('serviceModal').style.display = 'block';
+    document.body.style.overflow = 'hidden';
+  });
+});
+
+// Закрытие модального окна
+document.querySelectorAll('.close-modal, .close-modal-btn').forEach(btn => {
+  btn.addEventListener('click', function() {
+    document.getElementById('serviceModal').style.display = 'none';
+    document.body.style.overflow = 'auto';
+  });
+});
+
+// Закрытие при клике вне окна
+window.addEventListener('click', function(e) {
+  if (e.target === document.getElementById('serviceModal')) {
+    document.getElementById('serviceModal').style.display = 'none';
+    document.body.style.overflow = 'auto';
+  }
+});
